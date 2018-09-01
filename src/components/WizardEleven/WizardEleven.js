@@ -1,10 +1,11 @@
 import React,  { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 class WizardEleven extends Component {
-
     render(){
         return(
+
             <div className="parent-div">
                 <div className="vert-align">                      
                     <p>Here is an over view of your form:</p> 
@@ -125,5 +126,35 @@ class WizardEleven extends Component {
         )
     }
 }
+    function mapStateToProps( state ){
+        return{
+    loanType: state.loanType,
+    propertyType: state.propertyType,
+    //second view
+    city: state.city,
+    //third view
+    propToBeUsedOn: state.propToBeUsedOn,
+    //fourth view
+    found: state.found,
+    //fifth view
+    realEstateAgent: state.realEstateAgent,
+    //sixth view
+    downPayment: state.downPayment,
+    cost: state.cost,
+    //seventh view
+    credit: state.credit,
+    //eigth view
+    history: state.history,
+    //ninth view
+    addressOne: state.addressOne,
+    addressTwo: state.addressTwo,
+    addressThree: state.addressThree,
+    //tenth view
+    firstName: state.firstName,
+    lastName: state.lastName,
+    email: state.email
+        };
+    }
 
-export default WizardEleven;
+
+export default connect(mapStateToProps)(WizardEleven)
